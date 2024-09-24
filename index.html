@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>generate otp</title>
+</head>
+<body>
+  <h1>OTP Generator</h1>
+  <button class="js-generate-otp">generate Otp</button>
+  <div class="js-place-otp"></div>
+
+  <script>
+    const element = document.querySelector('.js-generate-otp');
+    console.log(element);
+    let htmlotp = '123';
+    
+   
+
+
+    element.addEventListener( "click", () => {
+     
+      htmlotp = generateOtp();
+       document.querySelector('.js-place-otp').innerHTML = `<p>${htmlotp}</p>`;
+       console.log(htmlotp);
+    });
+   
+
+
+    function generateOtp() {
+      let otp = ' ';
+      let token = ['0' , '1' , '2', '3', '4', '5', '6', '7', '8', '9'];
+      
+      for(let i = 0; i < 6; i++) {
+        otp = otp + token[Math.floor(Math.random() * 9)];
+      }
+ 
+      return otp;
+    }
+
+    
+  </script>
+</body>
+</html>
